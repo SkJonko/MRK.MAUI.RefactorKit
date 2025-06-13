@@ -9,7 +9,7 @@
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
-
+src/MRK.MAUI.RefactorKit/MRK.MAUI.RefactorKit/bin/
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/
@@ -265,6 +265,3 @@ paket-files/
 # Visual Studio Code
 .vscode
 /samples/workload-install.ps1
-
-# Benchmarkdot
-BenchmarkDotNet.Artifacts/
