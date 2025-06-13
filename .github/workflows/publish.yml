@@ -1,0 +1,17 @@
+name: Publish NuGet
+on:
+  workflow_dispatch: # Allow running the workflow manually from the GitHub UI
+  release:
+    types:
+      - published    # Run the workflow when a new GitHub release is published
+
+jobs:
+  publish:
+    uses: SkJonko/Centralized-Workflow-YAMLs/.github/workflows/nuget-publish-template.yaml@main
+    with:
+      project_path: './src/MRK.MAUI.RefactorKit.sln'
+      project_name: 'MRK.MAUI.RefactorKit'
+      need_run_test: false
+    secrets:
+      NUGET_APIKEY: ${{ secrets.NUGET_APIKEY }}
+      DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
