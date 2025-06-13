@@ -1,0 +1,12 @@
+C:\Users\antko\source\repos\src\MRK.MAUI.RefactorKit\MRK.MAUI.RefactorKit\bin\Debug\netstandard2.0\MRK.MAUI.RefactorKit.deps.json
+C:\Users\antko\source\repos\src\MRK.MAUI.RefactorKit\MRK.MAUI.RefactorKit\bin\Debug\netstandard2.0\MRK.MAUI.RefactorKit.dll
+C:\Users\antko\source\repos\src\MRK.MAUI.RefactorKit\MRK.MAUI.RefactorKit\bin\Debug\netstandard2.0\MRK.MAUI.RefactorKit.pdb
+C:\Users\antko\source\repos\src\MRK.MAUI.RefactorKit\MRK.MAUI.RefactorKit\obj\Debug\netstandard2.0\MRK.MAUI.RefactorKit.csproj.AssemblyReference.cache
+C:\Users\antko\source\repos\src\MRK.MAUI.RefactorKit\MRK.MAUI.RefactorKit\obj\Debug\netstandard2.0\MRK.MAUI.RefactorKit.Resources.resources
+C:\Users\antko\source\repos\src\MRK.MAUI.RefactorKit\MRK.MAUI.RefactorKit\obj\Debug\netstandard2.0\MRK.MAUI.RefactorKit.csproj.GenerateResource.cache
+C:\Users\antko\source\repos\src\MRK.MAUI.RefactorKit\MRK.MAUI.RefactorKit\obj\Debug\netstandard2.0\MRK.MAUI.RefactorKit.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\antko\source\repos\src\MRK.MAUI.RefactorKit\MRK.MAUI.RefactorKit\obj\Debug\netstandard2.0\MRK.MAUI.RefactorKit.AssemblyInfoInputs.cache
+C:\Users\antko\source\repos\src\MRK.MAUI.RefactorKit\MRK.MAUI.RefactorKit\obj\Debug\netstandard2.0\MRK.MAUI.RefactorKit.AssemblyInfo.cs
+C:\Users\antko\source\repos\src\MRK.MAUI.RefactorKit\MRK.MAUI.RefactorKit\obj\Debug\netstandard2.0\MRK.MAUI.RefactorKit.csproj.CoreCompileInputs.cache
+C:\Users\antko\source\repos\src\MRK.MAUI.RefactorKit\MRK.MAUI.RefactorKit\obj\Debug\netstandard2.0\MRK.MAUI.RefactorKit.dll
+C:\Users\antko\source\repos\src\MRK.MAUI.RefactorKit\MRK.MAUI.RefactorKit\obj\Debug\netstandard2.0\MRK.MAUI.RefactorKit.pdb

@@ -1,0 +1,15 @@
+C:\Users\antko\source\repos\src\MRK.MAUI.RefactorKit\MRK.MAUI.RefactorKit.CodeFixes\bin\Debug\netstandard2.0\MRK.MAUI.RefactorKit.CodeFixes.deps.json
+C:\Users\antko\source\repos\src\MRK.MAUI.RefactorKit\MRK.MAUI.RefactorKit.CodeFixes\bin\Debug\netstandard2.0\MRK.MAUI.RefactorKit.CodeFixes.dll
+C:\Users\antko\source\repos\src\MRK.MAUI.RefactorKit\MRK.MAUI.RefactorKit.CodeFixes\bin\Debug\netstandard2.0\MRK.MAUI.RefactorKit.CodeFixes.pdb
+C:\Users\antko\source\repos\src\MRK.MAUI.RefactorKit\MRK.MAUI.RefactorKit.CodeFixes\bin\Debug\netstandard2.0\MRK.MAUI.RefactorKit.dll
+C:\Users\antko\source\repos\src\MRK.MAUI.RefactorKit\MRK.MAUI.RefactorKit.CodeFixes\bin\Debug\netstandard2.0\MRK.MAUI.RefactorKit.pdb
+C:\Users\antko\source\repos\src\MRK.MAUI.RefactorKit\MRK.MAUI.RefactorKit.CodeFixes\obj\Debug\netstandard2.0\MRK.MAUI.RefactorKit.CodeFixes.csproj.AssemblyReference.cache
+C:\Users\antko\source\repos\src\MRK.MAUI.RefactorKit\MRK.MAUI.RefactorKit.CodeFixes\obj\Debug\netstandard2.0\MRK.MAUI.RefactorKit.CodeFixResources.resources
+C:\Users\antko\source\repos\src\MRK.MAUI.RefactorKit\MRK.MAUI.RefactorKit.CodeFixes\obj\Debug\netstandard2.0\MRK.MAUI.RefactorKit.CodeFixes.csproj.GenerateResource.cache
+C:\Users\antko\source\repos\src\MRK.MAUI.RefactorKit\MRK.MAUI.RefactorKit.CodeFixes\obj\Debug\netstandard2.0\MRK.MAUI.RefactorKit.CodeFixes.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\antko\source\repos\src\MRK.MAUI.RefactorKit\MRK.MAUI.RefactorKit.CodeFixes\obj\Debug\netstandard2.0\MRK.MAUI.RefactorKit.CodeFixes.AssemblyInfoInputs.cache
+C:\Users\antko\source\repos\src\MRK.MAUI.RefactorKit\MRK.MAUI.RefactorKit.CodeFixes\obj\Debug\netstandard2.0\MRK.MAUI.RefactorKit.CodeFixes.AssemblyInfo.cs
+C:\Users\antko\source\repos\src\MRK.MAUI.RefactorKit\MRK.MAUI.RefactorKit.CodeFixes\obj\Debug\netstandard2.0\MRK.MAUI.RefactorKit.CodeFixes.csproj.CoreCompileInputs.cache
+C:\Users\antko\source\repos\src\MRK.MAUI.RefactorKit\MRK.MAUI.RefactorKit.CodeFixes\obj\Debug\netstandard2.0\MRK.MAUI.BF4AEB77.Up2Date
+C:\Users\antko\source\repos\src\MRK.MAUI.RefactorKit\MRK.MAUI.RefactorKit.CodeFixes\obj\Debug\netstandard2.0\MRK.MAUI.RefactorKit.CodeFixes.dll
+C:\Users\antko\source\repos\src\MRK.MAUI.RefactorKit\MRK.MAUI.RefactorKit.CodeFixes\obj\Debug\netstandard2.0\MRK.MAUI.RefactorKit.CodeFixes.pdb

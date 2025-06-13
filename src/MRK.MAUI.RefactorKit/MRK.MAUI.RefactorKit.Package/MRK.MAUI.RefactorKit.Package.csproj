@@ -1,0 +1,53 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<IncludeBuildOutput>false</IncludeBuildOutput>
+		<SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<IncludeSymbols>true</IncludeSymbols>
+		<IncludeSource>true</IncludeSource>
+		<DebugType>portable</DebugType>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<PackageId>MRK.MAUI.RefactorKit</PackageId>
+		<PackageVersion>1.0.0.0</PackageVersion>
+		<Authors>SKJonko X UnRatedDi</Authors>
+		<PackageProjectUrl>https://github.com/SkJonko/MRK.MAUI.RefactorKit</PackageProjectUrl>
+		<PackageIcon>image.png</PackageIcon>
+		<RepositoryUrl>https://github.com/SkJonko/MRK.MAUI.RefactorKit</RepositoryUrl>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<Description>A lightweight and extensible toolkit for refactoring and structuring .NET MAUI applications. MRK.MAUI.RefactorKit simplifies common architectural patterns, promotes clean code, and accelerates MAUI development.</Description>
+		<PackageReleaseNotes>Summary of changes made in this release of the package.</PackageReleaseNotes>
+		<Copyright>Copyright © 2025</Copyright>
+		<PackageTags>MRK.MAUI.RefactorKit,MAUI RefactorKit, analyzers, Xamarin, port,MAUI,Refactoring,Architecture,Toolkit,Clean Architecture,MVVM,Dependency Injection,Xamarin to MAUI</PackageTags>
+		<DevelopmentDependency>true</DevelopmentDependency>
+		<NoPackageAnalysis>true</NoPackageAnalysis>
+
+		<TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);_AddAnalyzersToOutput</TargetsForTfmSpecificContentInPackage>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\MRK.MAUI.RefactorKit.CodeFixes\MRK.MAUI.RefactorKit.CodeFixes.csproj" />
+		<ProjectReference Include="..\MRK.MAUI.RefactorKit\MRK.MAUI.RefactorKit.csproj" />
+	</ItemGroup>
+
+	<Target Name="_AddAnalyzersToOutput">
+		<ItemGroup>
+			<TfmSpecificPackageFile Include="$(OutputPath)\MRK.MAUI.RefactorKit.dll" PackagePath="analyzers/dotnet/cs" />
+			<TfmSpecificPackageFile Include="$(OutputPath)\MRK.MAUI.RefactorKit.CodeFixes.dll" PackagePath="analyzers/dotnet/cs" />
+		</ItemGroup>
+	</Target>
+
+	<ItemGroup>
+		<None Include="images\image.png" Pack="true" PackagePath="" />
+		<None Include="README.md" Pack="true" PackagePath="" />
+	</ItemGroup>
+
+</Project>

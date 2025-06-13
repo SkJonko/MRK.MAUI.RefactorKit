@@ -1,0 +1,15 @@
+C:\Users\antko\source\repos\src\MRK.MAUI.RefactorKit\MRK.MAUI.RefactorKit.Package\bin\Debug\netstandard2.0\MRK.MAUI.RefactorKit.Package.deps.json
+C:\Users\antko\source\repos\src\MRK.MAUI.RefactorKit\MRK.MAUI.RefactorKit.Package\bin\Debug\netstandard2.0\MRK.MAUI.RefactorKit.Package.dll
+C:\Users\antko\source\repos\src\MRK.MAUI.RefactorKit\MRK.MAUI.RefactorKit.Package\bin\Debug\netstandard2.0\MRK.MAUI.RefactorKit.Package.pdb
+C:\Users\antko\source\repos\src\MRK.MAUI.RefactorKit\MRK.MAUI.RefactorKit.Package\bin\Debug\netstandard2.0\MRK.MAUI.RefactorKit.CodeFixes.dll
+C:\Users\antko\source\repos\src\MRK.MAUI.RefactorKit\MRK.MAUI.RefactorKit.Package\bin\Debug\netstandard2.0\MRK.MAUI.RefactorKit.dll
+C:\Users\antko\source\repos\src\MRK.MAUI.RefactorKit\MRK.MAUI.RefactorKit.Package\bin\Debug\netstandard2.0\MRK.MAUI.RefactorKit.CodeFixes.pdb
+C:\Users\antko\source\repos\src\MRK.MAUI.RefactorKit\MRK.MAUI.RefactorKit.Package\bin\Debug\netstandard2.0\MRK.MAUI.RefactorKit.pdb
+C:\Users\antko\source\repos\src\MRK.MAUI.RefactorKit\MRK.MAUI.RefactorKit.Package\obj\Debug\netstandard2.0\MRK.MAUI.RefactorKit.Package.csproj.AssemblyReference.cache
+C:\Users\antko\source\repos\src\MRK.MAUI.RefactorKit\MRK.MAUI.RefactorKit.Package\obj\Debug\netstandard2.0\MRK.MAUI.RefactorKit.Package.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\antko\source\repos\src\MRK.MAUI.RefactorKit\MRK.MAUI.RefactorKit.Package\obj\Debug\netstandard2.0\MRK.MAUI.RefactorKit.Package.AssemblyInfoInputs.cache
+C:\Users\antko\source\repos\src\MRK.MAUI.RefactorKit\MRK.MAUI.RefactorKit.Package\obj\Debug\netstandard2.0\MRK.MAUI.RefactorKit.Package.AssemblyInfo.cs
+C:\Users\antko\source\repos\src\MRK.MAUI.RefactorKit\MRK.MAUI.RefactorKit.Package\obj\Debug\netstandard2.0\MRK.MAUI.RefactorKit.Package.csproj.CoreCompileInputs.cache
+C:\Users\antko\source\repos\src\MRK.MAUI.RefactorKit\MRK.MAUI.RefactorKit.Package\obj\Debug\netstandard2.0\MRK.MAUI.3589A51A.Up2Date
+C:\Users\antko\source\repos\src\MRK.MAUI.RefactorKit\MRK.MAUI.RefactorKit.Package\obj\Debug\netstandard2.0\MRK.MAUI.RefactorKit.Package.dll
+C:\Users\antko\source\repos\src\MRK.MAUI.RefactorKit\MRK.MAUI.RefactorKit.Package\obj\Debug\netstandard2.0\MRK.MAUI.RefactorKit.Package.pdb
