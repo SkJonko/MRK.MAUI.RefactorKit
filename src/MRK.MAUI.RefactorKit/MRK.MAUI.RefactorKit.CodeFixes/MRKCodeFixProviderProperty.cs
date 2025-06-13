@@ -35,7 +35,9 @@ namespace MRK.MAUI.RefactorKit
             var node = token.Parent?.FirstAncestorOrSelf<PropertyDeclarationSyntax>();
 
             if (node == null)
+            {
                 return;
+            }
 
             context.RegisterCodeFix(
                 CodeAction.Create(
@@ -45,7 +47,7 @@ namespace MRK.MAUI.RefactorKit
                 diagnostic);
         }
 
-        private async Task<Document> ConvertToObservableFieldAsync(Document document, PropertyDeclarationSyntax propDecl, CancellationToken cancellationToken)
+        async Task<Document> ConvertToObservableFieldAsync(Document document, PropertyDeclarationSyntax propDecl, CancellationToken cancellationToken)
         {
             var editor = await DocumentEditor.CreateAsync(document, cancellationToken).ConfigureAwait(false);
 
@@ -103,12 +105,16 @@ namespace MRK.MAUI.RefactorKit
                             {
                                 var nameofArg = nameofInvoke.ArgumentList.Arguments[0].Expression.ToString();
                                 if (!string.Equals(nameofArg, propertyName, System.StringComparison.Ordinal))
+                                {
                                     notifyForNames.Add(nameofArg);
+                                }
                             }
                             else if (arg is LiteralExpressionSyntax literal && literal.IsKind(SyntaxKind.StringLiteralExpression))
                             {
                                 if (!string.Equals(literal.Token.ValueText, propertyName, System.StringComparison.Ordinal))
+                                {
                                     notifyForNames.Add(literal.Token.ValueText);
+                                }
                             }
                         }
                     }
@@ -135,14 +141,18 @@ namespace MRK.MAUI.RefactorKit
                         var variable = fieldToRemove.Declaration.Variables
                             .FirstOrDefault(v => v.Identifier.Text == backingFieldName);
                         if (variable?.Initializer != null)
+                        {
                             initializer = variable.Initializer;
+                        }
                     }
                 }
             }
 
             // If the property itself has an initializer, prefer that
             if (propDecl.Initializer != null)
+            {
                 initializer = propDecl.Initializer;
+            }
 
             var variableName = propDecl.Identifier.Text;
             var fieldName = char.ToUpperInvariant(variableName[0]) + variableName.Substring(1);
@@ -214,7 +224,9 @@ namespace MRK.MAUI.RefactorKit
             var comments = leadingTrivia.Where(t => t.IsKind(SyntaxKind.SingleLineCommentTrivia) || t.IsKind(SyntaxKind.MultiLineCommentTrivia)).ToList();
 
             if (comments.Count > 0)
+            {
                 normalizedTrivia = normalizedTrivia.InsertRange(0, comments);
+            }
 
             // Apply the trivia to the new property
             newProperty = newProperty.WithLeadingTrivia(normalizedTrivia);
