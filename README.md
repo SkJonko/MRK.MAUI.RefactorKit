@@ -5,6 +5,8 @@
 **MAUI.RefactorKit** is a Roslyn-based analyzer and code fix provider that helps automate the migration from Xamarin.Forms to .NET MAUI by converting legacy property patterns to the new `ObservableProperty` pattern using `CommunityToolkit.Mvvm`.
 
 ---
+[![Publish NuGet](https://github.com/SkJonko/MRK.MAUI.RefactorKit/actions/workflows/publish.yml/badge.svg)](https://github.com/SkJonko/MRK.MAUI.RefactorKit/actions/workflows/publish.yml)
+---
 
 ## ✨ Features
 
