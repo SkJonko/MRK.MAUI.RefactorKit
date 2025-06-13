@@ -8,8 +8,8 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
-		<IncludeSymbols>true</IncludeSymbols>
-		<IncludeSource>true</IncludeSource>
+		<!--<IncludeSymbols>true</IncludeSymbols>
+		<IncludeSource>true</IncludeSource>-->
 		<DebugType>portable</DebugType>
 	</PropertyGroup>
 
