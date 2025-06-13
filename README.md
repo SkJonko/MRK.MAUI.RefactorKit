@@ -39,7 +39,7 @@ The analyzer will:
 
 ### Examples
 
-You can find examples of the refactoring in the [README.md](https://github.com/SkJonko/MRK.MAUI.RefactorKit/tree/main/src/MRK.MAUI.RefactorKit/MRK.MAUI.RefactorKit.Package) file of the `MRK.MAUI.RefactorKit.Package` project.
+You can find examples of the refactoring in the [README.md](https://github.com/SkJonko/MRK.MAUI.RefactorKit/tree/main/docs) file of the `MRK.MAUI.RefactorKit.Package` project.
 
 
 ## 📌 Requirements
