@@ -61,6 +61,34 @@ namespace MRK.MAUI.RefactorKit {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Detects usage of DelegateCommand and suggests migration to RelayCommand in MAUI. 
+        ///See: https://learn.microsoft.com/en-us/dotnet/communitytoolkit/mvvm/generators/relaycommand.
+        /// </summary>
+        internal static string DelegateCommandAnalyzerDescription {
+            get {
+                return ResourceManager.GetString("DelegateCommandAnalyzerDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DelegateCommand &apos;{0}&apos; should be migrated to RelayCommand.
+        /// </summary>
+        internal static string DelegateCommandAnalyzerMessageFormat {
+            get {
+                return ResourceManager.GetString("DelegateCommandAnalyzerMessageFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DelegateCommand usage detected..
+        /// </summary>
+        internal static string DelegateCommandAnalyzerTitle {
+            get {
+                return ResourceManager.GetString("DelegateCommandAnalyzerTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Property must follow the new MAUI standard using [ObservableProperty] attribute.
         ///See: https://learn.microsoft.com/en-us/dotnet/communitytoolkit/mvvm/generators/observableproperty.
         /// </summary>

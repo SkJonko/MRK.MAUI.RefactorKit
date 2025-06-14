@@ -61,6 +61,15 @@ namespace MRK.MAUI.RefactorKit {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Convert to [RelayCommand].
+        /// </summary>
+        internal static string DelegateCommandFixTitle {
+            get {
+                return ResourceManager.GetString("DelegateCommandFixTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Convert to [ObservableProperty] field.
         /// </summary>
         internal static string PropertyFixTitle {
