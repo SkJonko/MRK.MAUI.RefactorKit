@@ -15,7 +15,7 @@
 
 	<PropertyGroup>
 		<PackageId>MRK.MAUI.RefactorKit</PackageId>
-		<PackageVersion>1.0.0.0</PackageVersion>
+		<PackageVersion>1.0.1.0-rc</PackageVersion>
 		<Authors>SKJonko X UnRatedDi</Authors>
 		<PackageProjectUrl>https://github.com/SkJonko/MRK.MAUI.RefactorKit</PackageProjectUrl>
 		<PackageIcon>image.png</PackageIcon>
