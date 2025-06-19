@@ -61,6 +61,34 @@ namespace MRK.MAUI.RefactorKit {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Detects usage of Command and suggests migration to RelayCommand in MAUI. 
+        ///See: https://learn.microsoft.com/en-us/dotnet/communitytoolkit/mvvm/generators/relaycommand.
+        /// </summary>
+        internal static string CommandAnalyzerDescription {
+            get {
+                return ResourceManager.GetString("CommandAnalyzerDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Command &apos;{0}&apos; should be migrated to RelayCommand.
+        /// </summary>
+        internal static string CommandAnalyzerMessageFormat {
+            get {
+                return ResourceManager.GetString("CommandAnalyzerMessageFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Command usage detected..
+        /// </summary>
+        internal static string CommandAnalyzerTitle {
+            get {
+                return ResourceManager.GetString("CommandAnalyzerTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Detects usage of DelegateCommand and suggests migration to RelayCommand in MAUI. 
         ///See: https://learn.microsoft.com/en-us/dotnet/communitytoolkit/mvvm/generators/relaycommand.
         /// </summary>

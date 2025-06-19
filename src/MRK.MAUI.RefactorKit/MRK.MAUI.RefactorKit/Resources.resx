@@ -121,11 +121,21 @@
     <value>Detects usage of DelegateCommand and suggests migration to RelayCommand in MAUI. 
 See: https://learn.microsoft.com/en-us/dotnet/communitytoolkit/mvvm/generators/relaycommand</value>
   </data>
+  <data name="CommandAnalyzerDescription" xml:space="preserve">
+    <value>Detects usage of Command and suggests migration to RelayCommand in MAUI. 
+See: https://learn.microsoft.com/en-us/dotnet/communitytoolkit/mvvm/generators/relaycommand</value>
+  </data>
   <data name="DelegateCommandAnalyzerMessageFormat" xml:space="preserve">
     <value>DelegateCommand '{0}' should be migrated to RelayCommand</value>
   </data>
+  <data name="CommandAnalyzerMessageFormat" xml:space="preserve">
+    <value>Command '{0}' should be migrated to RelayCommand</value>
+  </data>
   <data name="DelegateCommandAnalyzerTitle" xml:space="preserve">
     <value>DelegateCommand usage detected.</value>
+  </data>
+  <data name="CommandAnalyzerTitle" xml:space="preserve">
+    <value>Command usage detected.</value>
   </data>
   <data name="PropertyAnalyzerDescription" xml:space="preserve">
     <value>Property must follow the new MAUI standard using [ObservableProperty] attribute.

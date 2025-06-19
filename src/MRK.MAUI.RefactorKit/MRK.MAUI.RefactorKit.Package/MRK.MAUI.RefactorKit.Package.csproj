@@ -8,14 +8,12 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
-		<!--<IncludeSymbols>true</IncludeSymbols>
-		<IncludeSource>true</IncludeSource>-->
 		<DebugType>portable</DebugType>
 	</PropertyGroup>
 
 	<PropertyGroup>
 		<PackageId>MRK.MAUI.RefactorKit</PackageId>
-		<PackageVersion>1.0.1.0-rc</PackageVersion>
+		<PackageVersion>1.1.0.0</PackageVersion>
 		<Authors>SKJonko X UnRatedDi</Authors>
 		<PackageProjectUrl>https://github.com/SkJonko/MRK.MAUI.RefactorKit</PackageProjectUrl>
 		<PackageIcon>image.png</PackageIcon>
@@ -26,7 +24,7 @@
 		<Description>A lightweight and extensible toolkit for refactoring and structuring .NET MAUI applications. MRK.MAUI.RefactorKit simplifies common architectural patterns, promotes clean code, and accelerates MAUI development.</Description>
 		<PackageReleaseNotes>Summary of changes made in this release of the package.</PackageReleaseNotes>
 		<Copyright>Copyright © 2025</Copyright>
-		<PackageTags>MRK.MAUI.RefactorKit,MAUI RefactorKit, analyzers, Xamarin, port,MAUI,Refactoring,Architecture,Toolkit,Clean Architecture,MVVM,Dependency Injection,Xamarin to MAUI</PackageTags>
+		<PackageTags>MRK.MAUI.RefactorKit,MAUI RefactorKit, analyzers, Xamarin, port,MAUI,Refactoring,Architecture,Toolkit,Clean Architecture,MVVM,Dependency Injection,Xamarin to MAUI,Command,Commands,Delegate Command</PackageTags>
 		<DevelopmentDependency>true</DevelopmentDependency>
 		<NoPackageAnalysis>true</NoPackageAnalysis>
 

@@ -44,7 +44,7 @@ namespace MRK.MAUI.RefactorKit
 				diagnostic);
 		}
 
-		async Task<Document> ConvertToRelayCommandAsync(Document document, PropertyDeclarationSyntax propertyDecl, CancellationToken cancellationToken)
+		private async Task<Document> ConvertToRelayCommandAsync(Document document, PropertyDeclarationSyntax propertyDecl, CancellationToken cancellationToken)
 		{
 			var root = await document.GetSyntaxRootAsync(cancellationToken).ConfigureAwait(false);
 			var semanticModel = await document.GetSemanticModelAsync(cancellationToken).ConfigureAwait(false);
@@ -136,7 +136,7 @@ namespace MRK.MAUI.RefactorKit
 
 		#region Private
 
-		string GetBackingFieldName(PropertyDeclarationSyntax propertyDecl)
+		private string GetBackingFieldName(PropertyDeclarationSyntax propertyDecl)
 		{
 			// TODO: Rething this logic to handle different naming conventions.
 			var name = propertyDecl.Identifier.Text;
@@ -148,10 +148,10 @@ namespace MRK.MAUI.RefactorKit
 			return $"_{char.ToLowerInvariant(name[0])}{name.Substring(1)}Command";
 		}
 
-		string GetExecuteMethodName(PropertyDeclarationSyntax propertyDecl)
+		private string GetExecuteMethodName(PropertyDeclarationSyntax propertyDecl)
 			=> $"Execute{propertyDecl.Identifier.Text}";
 
-		string GetCanExecuteMethodName(PropertyDeclarationSyntax propertyDecl)
+		private string GetCanExecuteMethodName(PropertyDeclarationSyntax propertyDecl)
 			=> $"CanExecute{propertyDecl.Identifier.Text}";
 
 		#endregion
