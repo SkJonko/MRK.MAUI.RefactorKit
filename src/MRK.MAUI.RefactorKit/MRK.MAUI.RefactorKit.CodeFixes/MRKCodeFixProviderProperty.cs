@@ -45,7 +45,7 @@ namespace MRK.MAUI.RefactorKit
 				diagnostic);
 		}
 
-		async Task<Document> ConvertToObservableFieldAsync(Document document, PropertyDeclarationSyntax propDecl, CancellationToken cancellationToken)
+		private async Task<Document> ConvertToObservableFieldAsync(Document document, PropertyDeclarationSyntax propDecl, CancellationToken cancellationToken)
 		{
 			var editor = await DocumentEditor.CreateAsync(document, cancellationToken).ConfigureAwait(false);
 

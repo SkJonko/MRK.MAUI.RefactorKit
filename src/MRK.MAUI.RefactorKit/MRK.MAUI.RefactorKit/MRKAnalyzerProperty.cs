@@ -14,12 +14,12 @@ namespace MRK.MAUI.RefactorKit
         public const string OnPropertyChanged = "OnPropertyChanged";
         public const string SetProperty = "SetProperty";
 
-        static readonly LocalizableString Title = new LocalizableResourceString(nameof(Resources.PropertyAnalyzerTitle), Resources.ResourceManager, typeof(Resources));
-        static readonly LocalizableString MessageFormat = new LocalizableResourceString(nameof(Resources.PropertyAnalyzerMessageFormat), Resources.ResourceManager, typeof(Resources));
-        static readonly LocalizableString Description = new LocalizableResourceString(nameof(Resources.PropertyAnalyzerDescription), Resources.ResourceManager, typeof(Resources));
-        const string Category = "Refactoring";
+		private static readonly LocalizableString Title = new LocalizableResourceString(nameof(Resources.PropertyAnalyzerTitle), Resources.ResourceManager, typeof(Resources));
+		private static readonly LocalizableString MessageFormat = new LocalizableResourceString(nameof(Resources.PropertyAnalyzerMessageFormat), Resources.ResourceManager, typeof(Resources));
+		private static readonly LocalizableString Description = new LocalizableResourceString(nameof(Resources.PropertyAnalyzerDescription), Resources.ResourceManager, typeof(Resources));
+		private const string Category = "Refactoring";
 
-        static readonly DiagnosticDescriptor Rule = new DiagnosticDescriptor(DiagnosticId,
+		private static readonly DiagnosticDescriptor Rule = new DiagnosticDescriptor(DiagnosticId,
                                                                              Title,
                                                                              MessageFormat,
                                                                              Category,
@@ -37,7 +37,7 @@ namespace MRK.MAUI.RefactorKit
             context.RegisterSymbolAction(AnalyzeProperty, SymbolKind.Property);
         }
 
-        static void AnalyzeProperty(SymbolAnalysisContext context)
+		private static void AnalyzeProperty(SymbolAnalysisContext context)
         {
             var propertySymbol = (IPropertySymbol)context.Symbol;
 
