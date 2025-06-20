@@ -14,30 +14,30 @@ namespace MRK.MAUI.RefactorKit
         public const string OnPropertyChanged = "OnPropertyChanged";
         public const string SetProperty = "SetProperty";
 
-        static readonly LocalizableString Title = new LocalizableResourceString(nameof(Resources.PropertyAnalyzerTitle), Resources.ResourceManager, typeof(Resources));
-        static readonly LocalizableString MessageFormat = new LocalizableResourceString(nameof(Resources.PropertyAnalyzerMessageFormat), Resources.ResourceManager, typeof(Resources));
-        static readonly LocalizableString Description = new LocalizableResourceString(nameof(Resources.PropertyAnalyzerDescription), Resources.ResourceManager, typeof(Resources));
-        const string Category = "Naming";
+		private static readonly LocalizableString Title = new LocalizableResourceString(nameof(Resources.PropertyAnalyzerTitle), Resources.ResourceManager, typeof(Resources));
+		private static readonly LocalizableString MessageFormat = new LocalizableResourceString(nameof(Resources.PropertyAnalyzerMessageFormat), Resources.ResourceManager, typeof(Resources));
+		private static readonly LocalizableString Description = new LocalizableResourceString(nameof(Resources.PropertyAnalyzerDescription), Resources.ResourceManager, typeof(Resources));
+		private const string Category = "Refactoring";
 
-        static readonly DiagnosticDescriptor Rule = new DiagnosticDescriptor(DiagnosticId,
-                                                                                     Title,
-                                                                                     MessageFormat,
-                                                                                     Category,
-                                                                                     DiagnosticSeverity.Error,
-                                                                                     isEnabledByDefault: true,
-                                                                                     description: Description,
-                                                                                     helpLinkUri: "https://github.com/SkJonko/MRK.MAUI.RefactorKit/blob/main/docs/rules/MRK0001.md");
+		private static readonly DiagnosticDescriptor Rule = new DiagnosticDescriptor(DiagnosticId,
+                                                                             Title,
+                                                                             MessageFormat,
+                                                                             Category,
+                                                                             DiagnosticSeverity.Error,
+                                                                             isEnabledByDefault: true,
+                                                                             description: Description,
+                                                                             helpLinkUri: "https://github.com/SkJonko/MRK.MAUI.RefactorKit/blob/main/docs/rules/MRK0001.md");
 
-        public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics { get { return ImmutableArray.Create(Rule); } }
+        public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics => ImmutableArray.Create(Rule);
 
-        public override void Initialize(AnalysisContext context)
+		public override void Initialize(AnalysisContext context)
         {
             context.ConfigureGeneratedCodeAnalysis(GeneratedCodeAnalysisFlags.None);
             context.EnableConcurrentExecution();
             context.RegisterSymbolAction(AnalyzeProperty, SymbolKind.Property);
         }
 
-        static void AnalyzeProperty(SymbolAnalysisContext context)
+		private static void AnalyzeProperty(SymbolAnalysisContext context)
         {
             var propertySymbol = (IPropertySymbol)context.Symbol;
 

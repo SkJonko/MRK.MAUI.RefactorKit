@@ -265,3 +265,6 @@ paket-files/
 # Visual Studio Code
 .vscode
 /samples/workload-install.ps1
+/src/MRK.MAUI.RefactorKit/MRK.MAUI.RefactorKit/obj/Debug/netstandard2.0/MRK.MAUI.RefactorKit.csproj.CoreCompileInputs.cache
+/src/MRK.MAUI.RefactorKit/MRK.MAUI.RefactorKit/obj/Debug/netstandard2.0/MRK.MAUI.RefactorKit.Resources.resources
+/src/MRK.MAUI.RefactorKit/MRK.MAUI.RefactorKit.CodeFixes/obj/Debug/netstandard2.0/MRK.MAUI.RefactorKit.CodeFixResources.resources
