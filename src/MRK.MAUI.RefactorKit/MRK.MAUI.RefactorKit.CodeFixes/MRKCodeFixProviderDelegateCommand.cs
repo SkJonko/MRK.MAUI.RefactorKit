@@ -15,8 +15,7 @@ namespace MRK.MAUI.RefactorKit
 	[ExportCodeFixProvider(LanguageNames.CSharp, Name = nameof(MRKCodeFixProviderDelegateCommand)), Shared]
 	public class MRKCodeFixProviderDelegateCommand : CodeFixProvider
 	{
-		public sealed override ImmutableArray<string> FixableDiagnosticIds
-			=> ImmutableArray.Create(MRKAnalyzerDelegateCommand.DiagnosticId);
+		public sealed override ImmutableArray<string> FixableDiagnosticIds { get; } = ImmutableArray.Create(MRKAnalyzerDelegateCommand.DiagnosticId);
 
 		public sealed override FixAllProvider GetFixAllProvider()
 			=> WellKnownFixAllProviders.BatchFixer;
