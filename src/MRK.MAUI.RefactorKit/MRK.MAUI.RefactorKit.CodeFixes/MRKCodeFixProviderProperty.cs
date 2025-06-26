@@ -17,8 +17,7 @@ namespace MRK.MAUI.RefactorKit
 	public class MRKCodeFixProviderProperty : CodeFixProvider
 	{
 
-		public sealed override ImmutableArray<string> FixableDiagnosticIds
-			=> ImmutableArray.Create(MRKAnalyzerProperty.DiagnosticId);
+		public sealed override ImmutableArray<string> FixableDiagnosticIds { get; } = ImmutableArray.Create(MRKAnalyzerProperty.DiagnosticId);
 
 		public sealed override FixAllProvider GetFixAllProvider()
 			=> WellKnownFixAllProviders.BatchFixer;

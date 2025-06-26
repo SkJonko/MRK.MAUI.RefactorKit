@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MRK.MAUI.RefactorKit.CodeFi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MRK.MAUI.RefactorKit.Package", "MRK.MAUI.RefactorKit\MRK.MAUI.RefactorKit.Package\MRK.MAUI.RefactorKit.Package.csproj", "{4533EE5A-1BC3-4691-B806-E3B887E6EAD1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MRK.MAUI.RefactorKit.Tests", "MRK.MAUI.RefactorKit.Tests\MRK.MAUI.RefactorKit.Tests.csproj", "{0CE3A49D-F0F5-4E90-9618-D8B7B94A69D8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{4533EE5A-1BC3-4691-B806-E3B887E6EAD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4533EE5A-1BC3-4691-B806-E3B887E6EAD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4533EE5A-1BC3-4691-B806-E3B887E6EAD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CE3A49D-F0F5-4E90-9618-D8B7B94A69D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CE3A49D-F0F5-4E90-9618-D8B7B94A69D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CE3A49D-F0F5-4E90-9618-D8B7B94A69D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CE3A49D-F0F5-4E90-9618-D8B7B94A69D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

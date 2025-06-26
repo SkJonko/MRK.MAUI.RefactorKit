@@ -25,7 +25,7 @@ namespace MRK.MAUI.RefactorKit
 																			 description: Description,
 																			 helpLinkUri: "https://github.com/SkJonko/MRK.MAUI.RefactorKit/blob/main/docs/rules/MRK0002.md");
 
-		public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics => ImmutableArray.Create(Rule);
+		public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics { get; } = ImmutableArray.Create(Rule);
 
 		public override void Initialize(AnalysisContext context)
 		{
