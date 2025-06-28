@@ -2,6 +2,8 @@
 
 using NSubstitute;
 
+using Xunit;
+
 namespace MRK.MAUI.RefactorKit.Tests;
 
 /// <summary>
@@ -50,9 +52,9 @@ public abstract class BaseDiagnosticAnalyzerTests<TDiagnosticAnalyzer>
 
 		diagnosticAnalyzer.Initialize(analysisContext);
 
-		Assert.True(AssertNoExceptionThrown(() => analysisContext.Received(1).ConfigureGeneratedCodeAnalysis(GeneratedCodeAnalysisFlags.None)));
+		AssertNoExceptionThrown(() => analysisContext.Received(1).ConfigureGeneratedCodeAnalysis(GeneratedCodeAnalysisFlags.None));
 
-		Assert.True(AssertNoExceptionThrown(() => analysisContext.Received(1).EnableConcurrentExecution()));
+		AssertNoExceptionThrown(() => analysisContext.Received(1).EnableConcurrentExecution());
 
 		AssertNoExceptionThrownInRegisterAction(analysisContext);
 	}
@@ -66,7 +68,25 @@ public abstract class BaseDiagnosticAnalyzerTests<TDiagnosticAnalyzer>
 	/// </summary>
 	/// <param name="action">The action that will be invoked</param>
 	/// <returns></returns>
-	protected static bool AssertNoExceptionThrown(Action action)
+	protected static void AssertNoExceptionThrown(Action action) 
+		=> Assert.True(WasNoExceptionThrown(action));
+
+	/// <summary>
+	/// Asserts whether the register action is executed no exception is thrown
+	/// </summary>
+	/// <param name="analysisContext">The analysis context</param>
+	protected abstract void AssertNoExceptionThrownInRegisterAction(AnalysisContext analysisContext);
+
+	#endregion
+
+	#region Private Methods
+
+	/// <summary>
+	/// Checks that no exception is thrown when the <paramref name="action"/> is invoked
+	/// </summary>
+	/// <param name="action">The action that will be invoked</param>
+	/// <returns></returns>
+	private static bool WasNoExceptionThrown(Action action)
 	{
 		ArgumentNullException.ThrowIfNull(action);
 
@@ -77,16 +97,11 @@ public abstract class BaseDiagnosticAnalyzerTests<TDiagnosticAnalyzer>
 			return true;
 		}
 		catch (Exception)
+
 		{
 			return false;
 		}
 	}
-
-	/// <summary>
-	/// Asserts whether the register action is executed no exception is thrown
-	/// </summary>
-	/// <param name="analysisContext">The analysis context</param>
-	protected abstract void AssertNoExceptionThrownInRegisterAction(AnalysisContext analysisContext);
 
 	#endregion
 }

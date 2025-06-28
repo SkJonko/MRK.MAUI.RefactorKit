@@ -1,4 +1,5 @@
-﻿using System.Collections.Immutable;
+﻿using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Linq;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
@@ -19,7 +20,7 @@ namespace MRK.MAUI.RefactorKit
 		private static readonly LocalizableString Description = new LocalizableResourceString(nameof(Resources.PropertyAnalyzerDescription), Resources.ResourceManager, typeof(Resources));
 		private const string Category = "Refactoring";
 
-		private static readonly DiagnosticDescriptor Rule = new DiagnosticDescriptor(DiagnosticId,
+		public static readonly DiagnosticDescriptor Rule = new DiagnosticDescriptor(DiagnosticId,
                                                                              Title,
                                                                              MessageFormat,
                                                                              Category,

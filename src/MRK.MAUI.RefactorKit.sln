@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MRK.MAUI.RefactorKit.Packag
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MRK.MAUI.RefactorKit.Tests", "MRK.MAUI.RefactorKit.Tests\MRK.MAUI.RefactorKit.Tests.csproj", "{0CE3A49D-F0F5-4E90-9618-D8B7B94A69D8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MRK.MAUI.RefactorKit.CodeFixes.Tests", "MRK.MAUI.RefactorKit.CodeFixes.Tests\MRK.MAUI.RefactorKit.CodeFixes.Tests.csproj", "{742B4B9F-AD37-437F-9A1D-133E6EA9434C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{0CE3A49D-F0F5-4E90-9618-D8B7B94A69D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0CE3A49D-F0F5-4E90-9618-D8B7B94A69D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0CE3A49D-F0F5-4E90-9618-D8B7B94A69D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{742B4B9F-AD37-437F-9A1D-133E6EA9434C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{742B4B9F-AD37-437F-9A1D-133E6EA9434C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{742B4B9F-AD37-437F-9A1D-133E6EA9434C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{742B4B9F-AD37-437F-9A1D-133E6EA9434C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

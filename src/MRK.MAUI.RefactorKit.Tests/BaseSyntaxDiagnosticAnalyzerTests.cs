@@ -5,6 +5,8 @@ using Microsoft.CodeAnalysis.Diagnostics;
 
 using NSubstitute;
 
+using Xunit;
+
 namespace MRK.MAUI.RefactorKit.Tests;
 
 /// <summary>
@@ -28,7 +30,7 @@ public abstract class BaseSyntaxDiagnosticAnalyzerTests<TDiagnosticAnalyzer> : B
 
 		var validSymbolKinds = Arg.Is<ImmutableArray<SyntaxKind>>(x => IsValidPropertyDeclarationSyntaxArgument(x));
 
-		Assert.True(AssertNoExceptionThrown(() => analysisContext.Received(1).RegisterSyntaxNodeAction(validSyntaxNodeAction, validSymbolKinds)));
+		AssertNoExceptionThrown(() => analysisContext.Received(1).RegisterSyntaxNodeAction(validSyntaxNodeAction, validSymbolKinds));
 	}
 
 	#endregion
