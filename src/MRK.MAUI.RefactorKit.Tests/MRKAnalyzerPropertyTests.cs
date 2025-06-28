@@ -5,6 +5,8 @@ using Microsoft.CodeAnalysis.Diagnostics;
 
 using NSubstitute;
 
+using Xunit;
+
 namespace MRK.MAUI.RefactorKit.Tests;
 
 /// <summary>
@@ -29,7 +31,6 @@ public sealed class MRKAnalyzerPropertyTests : BaseDiagnosticAnalyzerTests<MRKAn
 	/// <summary>
 	/// <inheritdoc/>
 	/// </summary>
-	/// <exception cref="NotImplementedException"></exception>
 	protected sealed override void AssertNoExceptionThrownInRegisterAction(AnalysisContext analysisContext)
 	{
 		ArgumentNullException.ThrowIfNull(analysisContext);
@@ -38,7 +39,7 @@ public sealed class MRKAnalyzerPropertyTests : BaseDiagnosticAnalyzerTests<MRKAn
 
 		var validSymbolKinds = Arg.Is<ImmutableArray<SymbolKind>>(x => IsValidPropertySymbolArgument(x));
 
-		Assert.True(AssertNoExceptionThrown(() => analysisContext.Received(1).RegisterSymbolAction(validSymbolAction, validSymbolKinds)));
+		AssertNoExceptionThrown(() => analysisContext.Received(1).RegisterSymbolAction(validSymbolAction, validSymbolKinds));
 	}
 
 	#endregion
