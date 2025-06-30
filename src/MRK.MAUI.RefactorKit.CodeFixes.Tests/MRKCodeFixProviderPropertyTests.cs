@@ -1,6 +1,6 @@
-﻿using Microsoft.CodeAnalysis;
-using Microsoft.CodeAnalysis.CSharp.Testing;
-using Microsoft.CodeAnalysis.Testing;
+﻿using Microsoft.CodeAnalysis.Testing;
+
+using MRK.MAUI.RefactorKit.Tests;
 
 using Xunit;
 
@@ -25,8 +25,11 @@ public sealed class MRKCodeFixProviderPropertyTests
 
 	#region Tests Methods
 
+	/// <summary>
+	/// Validates that when a deprecated observable property is analyzed, the expected code fix is applied successfully
+	/// </summary>
 	[Fact]
-	public async Task Test1()
+	public async Task MRKCodeFixProviderProperty_CodeFixIsAppliedSuccessfully_WhenDeprecatedPropertyIsAnalyzed()
 	{
 		var testCode = /* lang=c#-test */@"
 		using CommunityToolkit.Mvvm.ComponentModel;
@@ -57,70 +60,31 @@ public sealed class MRKCodeFixProviderPropertyTests
 		{
 			public partial class TestViewModel : ObservableObject
 			{
-				[ObservableProperty]
-				public partial string Name { get; set; }
-			}
-		}
+        [ObservableProperty]
+        public partial string Name { get; set; }
+    }
+}
 		";
 
-		var codeFixTest = new CSharpCodeFixTest<MRKAnalyzerProperty, MRKCodeFixProviderProperty, DefaultVerifier>()
+		var codeFixTest = new PartialPropertyCSharpCodeFixTest()
 		{
-			ReferenceAssemblies = ReferenceAssemblies.Net
-									.Net90
-									.AddPackages([new PackageIdentity("CommunityToolkit.Mvvm", "8.4.0")]),
 			TestCode = testCode,
-			BatchFixedCode = fixedCode,
+			FixedCode = fixedCode
 		};
 
-		var t = new DiagnosticResult(MRKAnalyzerProperty.Rule).WithArguments("Name").WithSpan(10, 19, 10, 23);
+		var exceptedAnalyzerDiagnostic = new DiagnosticResult(MRKAnalyzerProperty.Rule).WithArguments("Name")
+										.WithSpan(10, 19, 10, 23);
 
-		codeFixTest.ExpectedDiagnostics.Add(t);
+		codeFixTest.ExpectedDiagnostics.Add(exceptedAnalyzerDiagnostic);
 
-		await codeFixTest.RunAsync();
+		await TestHelpers.AssertNoExceptionThrownAsync(() => codeFixTest.RunAsync());
 	}
 
 	/// <summary>
-	/// Validates that when a deprecated observable property is analyzed, at least one diagnostic error occurs
+	/// Validates that when a deprecated observable property with a NotifyPropertyChangedFor target is analyzed, the expected code fix is applied successfully
 	/// </summary>
 	[Fact]
-	public async Task MRKAnalyzerProperty_DiagnosticErrorsOccur_WhenDeprecatedPropertyIsAnalyzed()
-	{
-		var testCode = /* lang=c#-test */@"
-		using CommunityToolkit.Mvvm.ComponentModel;
-
-		namespace Test
-		{
-			public class TestViewModel: ObservableObject
-			{
-
-				private string _name;
-
-				public string Name
-				{
-					get => _name;
-					set
-					{
-						_name = value;
-						OnPropertyChanged(nameof(Name));
-					}
-				}
-			}
-		}
-		";
-
-		var analyzerTest = new ObservablePropertyCSharpAnalyzerTest()
-		{
-			TestCode = testCode
-		};
-
-		await Assert.ThrowsAnyAsync<Exception>(() => analyzerTest.RunAsync());
-	}
-
-	/// <summary>
-	/// Validates that when a valid observable property is analyzed, no diagnostics occur
-	/// </summary>
-	[Fact]
-	public async Task MRKAnalyzerProperty_NoDiagnosticsOccur_WhenValidPropertyIsAnalyzed()
+	public async Task MRKCodeFixProviderProperty_CodeFixIsAppliedSuccessfully_WhenDeprecatedPropertyWithNotifyPropertyChangedForAttributeIsAnalyzed()
 	{
 		var testCode = /* lang=c#-test */@"
 		using CommunityToolkit.Mvvm.ComponentModel;
@@ -129,61 +93,51 @@ public sealed class MRKCodeFixProviderPropertyTests
 		{
 			public partial class TestViewModel : ObservableObject
 			{
-				[ObservableProperty]
-				public partial string Name { get; set; }
+				private string _name;
+
+				public string Name
+				{
+					get => _name;
+					set
+					{
+						_name = value;
+						OnPropertyChanged(nameof(CanExecuteCommand));
+					}
+				}
+
+				public bool CanExecuteCommand  { get; set; }
 			}
 		}
 		";
 
-		var analyzerTest = new PartialPropertyCSharpAnalyzerTest
+		var fixedCode = /* lang=c#-test */@"
+		using CommunityToolkit.Mvvm.ComponentModel;
+
+		namespace Test
+		{
+			public partial class TestViewModel : ObservableObject
+			{
+        [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(CanExecuteCommand))]
+        public partial string Name { get; set; }
+        public bool CanExecuteCommand  { get; set; }
+			}
+		}
+		";
+
+		var codeFixTest = new PartialPropertyCSharpCodeFixTest()
 		{
 			TestCode = testCode,
+			FixedCode = fixedCode
 		};
 
-		await AssertNoExceptionThrown(() => analyzerTest.RunAsync());
+		var exceptedAnalyzerDiagnostic = new DiagnosticResult(MRKAnalyzerProperty.Rule).WithArguments("Name")
+										.WithSpan(10, 19, 10, 23);
+
+		codeFixTest.ExpectedDiagnostics.Add(exceptedAnalyzerDiagnostic);
+
+		await TestHelpers.AssertNoExceptionThrownAsync(() => codeFixTest.RunAsync());
 	}
 
 	#endregion
-
-	/// <summary>
-	/// Asserts that no exception is thrown when the <paramref name="action"/> is invoked
-	/// </summary>
-	/// <param name="action">The action that will be invoked</param>
-	/// <returns></returns>
-	private static async Task AssertNoExceptionThrown(Func<Task> action)
-		=> Assert.True(await WasNoExceptionThrownAsync(action).ConfigureAwait(false));
-
-	/// <summary>
-	/// Checks that no exception is thrown when the <paramref name="action"/> is invoked
-	/// </summary>
-	/// <param name="action">The action that will be invoked</param>
-	/// <returns></returns>
-	private static async Task<bool> WasNoExceptionThrownAsync(Func<Task> action)
-	{
-		ArgumentNullException.ThrowIfNull(action);
-
-		try
-		{
-			await action().ConfigureAwait(false);
-
-			return true;
-		}
-		catch (Exception)
-		{
-			return false;
-		}
-	}
-}
-
-public class TestVerifier : DefaultVerifier
-{
-	public override void Equal<T>(T expected, T actual, string? message = null)
-	{
-		base.Equal(expected, actual, message);
-	}
-
-	public override IVerifier PushContext(string context)
-	{
-		return base.PushContext(context);
-	}
 }

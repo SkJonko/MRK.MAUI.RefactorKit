@@ -6,11 +6,9 @@
     <LangVersion>preview</LangVersion>
     <Nullable>enable</Nullable>
     <IsPackable>false</IsPackable>
-    <AnalysisMode>all</AnalysisMode>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
     <PackageReference Include="coverlet.collector" Version="6.0.4">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -26,6 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MRK.MAUI.RefactorKit.Tests\MRK.MAUI.RefactorKit.Tests.csproj" />
     <ProjectReference Include="..\MRK.MAUI.RefactorKit\MRK.MAUI.RefactorKit.CodeFixes\MRK.MAUI.RefactorKit.CodeFixes.csproj" />
   </ItemGroup>
 

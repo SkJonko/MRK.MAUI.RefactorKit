@@ -1,23 +1,23 @@
 ﻿using Microsoft.CodeAnalysis.CSharp.Testing;
 using Microsoft.CodeAnalysis.Testing;
 
+using MRK.MAUI.RefactorKit.Tests;
+
 namespace MRK.MAUI.RefactorKit.CodeFixes.Tests;
 
 /// <summary>
 /// The C# analyzer test for an observable property
 /// </summary>
-internal class ObservablePropertyCSharpAnalyzerTest : CSharpAnalyzerTest<MRKAnalyzerProperty, DefaultVerifier>
+internal class ObservablePropertyCSharpCodeFixTest : CSharpCodeFixTest<MRKAnalyzerProperty, MRKCodeFixProviderProperty, DefaultVerifier>
 {
 	#region Constructors
 
 	/// <summary>
 	/// Default constructor
 	/// </summary>
-	public ObservablePropertyCSharpAnalyzerTest() : base()
+	public ObservablePropertyCSharpCodeFixTest() : base()
 	{
-		ReferenceAssemblies = ReferenceAssemblies.Net
-							.Net90
-							.AddPackages([new PackageIdentity("CommunityToolkit.Mvvm", "8.4.0")]);
+		ReferenceAssemblies = TestConstants.Net9MvvmAssemblies;
 	}
 
 	#endregion

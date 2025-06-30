@@ -26,6 +26,104 @@ public sealed class MRKAnalyzerPropertyTests : BaseDiagnosticAnalyzerTests<MRKAn
 
 	#endregion
 
+	#region Test Methods
+
+	/// <summary>
+	/// Validates that when a deprecated observable property is analyzed, at least one diagnostic error occurs
+	/// </summary>
+	[Fact]
+	public async Task MRKAnalyzerProperty_DiagnosticErrorsOccur_WhenDeprecatedPropertyIsAnalyzed()
+	{
+		var testCode = /* lang=c#-test */@"
+		using CommunityToolkit.Mvvm.ComponentModel;
+
+		namespace Test
+		{
+			public class TestViewModel: ObservableObject
+			{
+
+				private string _name;
+
+				public string Name
+				{
+					get => _name;
+					set
+					{
+						_name = value;
+						OnPropertyChanged(nameof(Name));
+					}
+				}
+			}
+		}
+		";
+
+		var analyzerTest = new ObservablePropertyCSharpAnalyzerTest<MRKAnalyzerProperty>()
+		{
+			TestCode = testCode
+		};
+
+		await Assert.ThrowsAnyAsync<Exception>(() => analyzerTest.RunAsync());
+	}
+
+	/// <summary>
+	/// Validates that when a valid observable property is analyzed, no diagnostics occur
+	/// </summary>
+	[Fact]
+	public async Task MRKAnalyzerProperty_NoDiagnosticsOccur_WhenValidPropertyIsAnalyzed()
+	{
+		var testCode = /* lang=c#-test */@"
+		using CommunityToolkit.Mvvm.ComponentModel;
+
+		namespace Test
+		{
+			public partial class TestViewModel : ObservableObject
+			{
+				[ObservableProperty]
+				public partial string Name { get; set; }
+			}
+		}
+		";
+
+		var analyzerTest = new PartialPropertyCSharpAnalyzerTest<MRKAnalyzerProperty>
+		{
+			TestCode = testCode
+		};
+
+		await TestHelpers.AssertNoExceptionThrownAsync(() => analyzerTest.RunAsync());
+	}
+
+	/// <summary>
+	/// Validates that when a valid observable property is analyzed, no diagnostics occur
+	/// </summary>
+	[Fact]
+	public async Task MRKAnalyzerProperty_NoDiagnosticsOccur_WhenValidPropertyWithNotifyPropertyChangedForAttributeIsAnalyzed()
+	{
+		var testCode = /* lang=c#-test */@"
+		using CommunityToolkit.Mvvm.ComponentModel;
+
+		namespace Test
+		{
+			public partial class TestViewModel : ObservableObject
+			{
+				[ObservableProperty]
+				[NotifyPropertyChangedFor(nameof(CanExecuteCommand))]
+				public partial string Name { get; set; }
+
+				public bool CanExecuteCommand  { get; set; }
+			}
+		}
+		";
+
+		var analyzerTest = new PartialPropertyCSharpAnalyzerTest<MRKAnalyzerProperty>
+		{
+			TestCode = testCode
+		};
+
+		await TestHelpers.AssertNoExceptionThrownAsync(() => analyzerTest.RunAsync());
+	}
+
+	#endregion
+
 	#region Protected Methods
 
 	/// <summary>
