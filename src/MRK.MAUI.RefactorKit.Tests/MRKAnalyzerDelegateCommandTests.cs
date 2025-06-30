@@ -1,4 +1,6 @@
-﻿namespace MRK.MAUI.RefactorKit.Tests;
+﻿using Xunit;
+
+namespace MRK.MAUI.RefactorKit.Tests;
 
 /// <summary>
 /// Contains the tests regarding the <see cref="MRKAnalyzerDelegateCommand"/>
