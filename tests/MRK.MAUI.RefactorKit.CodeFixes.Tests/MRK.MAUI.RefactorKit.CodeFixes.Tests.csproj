@@ -24,7 +24,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MRK.MAUI.RefactorKit\MRK.MAUI.RefactorKit.CodeFixes\MRK.MAUI.RefactorKit.CodeFixes.csproj" />
+    <ProjectReference Include="..\..\src\MRK.MAUI.RefactorKit\MRK.MAUI.RefactorKit.CodeFixes\MRK.MAUI.RefactorKit.CodeFixes.csproj" />
+    <ProjectReference Include="..\MRK.MAUI.RefactorKit.Tests\MRK.MAUI.RefactorKit.Tests.csproj" />
   </ItemGroup>
 
 </Project>

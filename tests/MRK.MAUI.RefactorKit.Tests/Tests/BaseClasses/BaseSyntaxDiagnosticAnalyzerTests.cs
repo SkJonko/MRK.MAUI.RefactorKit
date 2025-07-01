@@ -5,8 +5,6 @@ using Microsoft.CodeAnalysis.Diagnostics;
 
 using NSubstitute;
 
-using Xunit;
-
 namespace MRK.MAUI.RefactorKit.Tests;
 
 /// <summary>
@@ -21,7 +19,6 @@ public abstract class BaseSyntaxDiagnosticAnalyzerTests<TDiagnosticAnalyzer> : B
 	/// <summary>
 	/// <inheritdoc/>
 	/// </summary>
-	/// <exception cref="NotImplementedException"></exception>
 	protected sealed override void AssertNoExceptionThrownInRegisterAction(AnalysisContext analysisContext)
 	{
 		ArgumentNullException.ThrowIfNull(analysisContext);

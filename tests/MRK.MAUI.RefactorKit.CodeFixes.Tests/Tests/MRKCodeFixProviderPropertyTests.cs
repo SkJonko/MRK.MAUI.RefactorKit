@@ -66,7 +66,7 @@ public sealed class MRKCodeFixProviderPropertyTests
 }
 		";
 
-		var codeFixTest = new PartialPropertyCSharpCodeFixTest()
+		var codeFixTest = new PartialMemberCSharpCodeFixTest<MRKAnalyzerProperty, MRKCodeFixProviderProperty>()
 		{
 			TestCode = testCode,
 			FixedCode = fixedCode
@@ -125,7 +125,7 @@ public sealed class MRKCodeFixProviderPropertyTests
 		}
 		";
 
-		var codeFixTest = new PartialPropertyCSharpCodeFixTest()
+		var codeFixTest = new PartialMemberCSharpCodeFixTest<MRKAnalyzerProperty, MRKCodeFixProviderProperty>()
 		{
 			TestCode = testCode,
 			FixedCode = fixedCode
@@ -133,6 +133,57 @@ public sealed class MRKCodeFixProviderPropertyTests
 
 		var exceptedAnalyzerDiagnostic = new DiagnosticResult(MRKAnalyzerProperty.Rule).WithArguments("Name")
 										.WithSpan(10, 19, 10, 23);
+
+		codeFixTest.ExpectedDiagnostics.Add(exceptedAnalyzerDiagnostic);
+
+		await TestHelpers.AssertNoExceptionThrownAsync(() => codeFixTest.RunAsync());
+	}
+
+	/// <summary>
+	/// Validates that when a deprecated observable property with a NotifyPropertyChangedFor target is analyzed, the expected code fix is applied successfully
+	/// </summary>
+	[Fact]
+	public async Task MRKCodeFixProviderProperty_CodeFixIsAppliedSuccessfully_WhenDeprecatedPropertyWithNotifyPropertyChangedTargetIsAnalyzed()
+	{
+		var testCode = /* lang=c#-test */@"
+		using CommunityToolkit.Mvvm.ComponentModel;
+
+		namespace Test
+		{
+			public partial class TestViewModel : ObservableObject
+			{
+				private bool _canExecuteCommand = false;
+
+				public bool CanExecuteCommand
+				{
+					get { return _canExecuteCommand; }
+					set { SetProperty(ref _canExecuteCommand, value); }
+				}
+			}
+		}
+		";
+
+		var fixedCode = /* lang=c#-test */@"
+		using CommunityToolkit.Mvvm.ComponentModel;
+
+		namespace Test
+		{
+			public partial class TestViewModel : ObservableObject
+			{
+        [ObservableProperty]
+        public partial bool CanExecuteCommand { get; set; } = false;
+    }
+}
+		";
+
+		var codeFixTest = new PartialMemberCSharpCodeFixTest<MRKAnalyzerProperty, MRKCodeFixProviderProperty>()
+		{
+			TestCode = testCode,
+			FixedCode = fixedCode
+		};
+
+		var exceptedAnalyzerDiagnostic = new DiagnosticResult(MRKAnalyzerProperty.Rule).WithArguments("CanExecuteCommand")
+										.WithSpan(10, 17, 10, 34);
 
 		codeFixTest.ExpectedDiagnostics.Add(exceptedAnalyzerDiagnostic);
 

@@ -68,7 +68,7 @@ public abstract class BaseDiagnosticAnalyzerTests<TDiagnosticAnalyzer>
 	/// </summary>
 	/// <param name="action">The action that will be invoked</param>
 	/// <returns></returns>
-	protected static void AssertNoExceptionThrown(Action action) 
+	protected static void AssertNoExceptionThrown(Action action)
 		=> Assert.True(WasNoExceptionThrown(action));
 
 	/// <summary>
