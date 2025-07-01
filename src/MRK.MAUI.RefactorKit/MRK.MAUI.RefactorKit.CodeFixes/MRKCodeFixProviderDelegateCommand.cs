@@ -130,10 +130,48 @@ namespace MRK.MAUI.RefactorKit
 				editor.RemoveNode(canExecuteMethod);
 			}
 
+			var compilationUnit = root as CompilationUnitSyntax;
+
+			var newUsings = CreateUpdatedUsings(compilationUnit.Usings);
+
+			var ac = editor.OriginalRoot as CompilationUnitSyntax;
+			var newRoot = ac.WithUsings(newUsings);
+			editor.ReplaceNode(root, newRoot);
+
 			return editor.GetChangedDocument();
 		}
 
 		#region Private
+
+		/// <summary>
+		/// Creates the update using directives based on the <paramref name="usingDirectives"/>
+		/// </summary>
+		/// <param name="usingDirectives"></param>
+		/// <returns></returns>
+		private static SyntaxList<UsingDirectiveSyntax> CreateUpdatedUsings(SyntaxList<UsingDirectiveSyntax> usingDirectives)
+		{
+			var updatedUsings = usingDirectives;
+
+			var importantUsingName = "CommunityToolkit.Mvvm.Input";
+
+			// If the important namespace, is not already contained...
+			if (!updatedUsings.Any(x => x.Name.ToString() == importantUsingName))
+			{
+				var importantUsing = SyntaxFactory.UsingDirective(SyntaxFactory.ParseName(importantUsingName));
+
+				updatedUsings = updatedUsings.Add(importantUsing);
+			}
+
+			var existingDeprecatedUsing = updatedUsings.FirstOrDefault(x => x.Name.ToString() == "Prism.Commands");
+
+			// If the deprecated namespace exists...
+			if (existingDeprecatedUsing != null)
+			{
+				updatedUsings = updatedUsings.Remove(existingDeprecatedUsing);
+			}
+
+			return updatedUsings;
+		}
 
 		private string GetBackingFieldName(PropertyDeclarationSyntax propertyDecl)
 		{

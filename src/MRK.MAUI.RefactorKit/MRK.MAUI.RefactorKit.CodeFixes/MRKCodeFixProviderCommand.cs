@@ -117,13 +117,53 @@ namespace MRK.MAUI.RefactorKit
                 editor.RemoveNode(backingField);
             }
 
-            return editor.GetChangedDocument().Project.Solution;
+			var root = await document.GetSyntaxRootAsync();
+
+			var compilationUnit = root as CompilationUnitSyntax;
+
+			var newUsings = CreateUpdatedUsings(compilationUnit.Usings);
+
+			var ac = editor.OriginalRoot as CompilationUnitSyntax;
+			var newRoot = ac.WithUsings(newUsings);
+			editor.ReplaceNode(root, newRoot);
+
+			return editor.GetChangedDocument().Project.Solution;
         }
 
-        /// <summary>
-        /// Finds the private field that is used as a backing field for the command property.
-        /// </summary>
-        private FieldDeclarationSyntax FindBackingField(ClassDeclarationSyntax classDecl, PropertyDeclarationSyntax propDecl, SemanticModel semanticModel)
+		/// <summary>
+		/// Creates the update using directives based on the <paramref name="usingDirectives"/>
+		/// </summary>
+		/// <param name="usingDirectives"></param>
+		/// <returns></returns>
+		private static SyntaxList<UsingDirectiveSyntax> CreateUpdatedUsings(SyntaxList<UsingDirectiveSyntax> usingDirectives)
+		{
+			var updatedUsings = usingDirectives;
+
+			var importantUsingName = "CommunityToolkit.Mvvm.Input";
+
+			// If the important namespace, is not already contained...
+			if (!updatedUsings.Any(x => x.Name.ToString() == importantUsingName))
+			{
+				var importantUsing = SyntaxFactory.UsingDirective(SyntaxFactory.ParseName(importantUsingName));
+
+				updatedUsings = updatedUsings.Add(importantUsing);
+			}
+
+			var existingDeprecatedUsing = updatedUsings.FirstOrDefault(x => x.Name.ToString() == "Microsoft.Maui.Controls");
+
+			// If the deprecated namespace exists...
+			if (existingDeprecatedUsing != null)
+			{
+				updatedUsings = updatedUsings.Remove(existingDeprecatedUsing);
+			}
+
+			return updatedUsings;
+		}
+
+		/// <summary>
+		/// Finds the private field that is used as a backing field for the command property.
+		/// </summary>
+		private FieldDeclarationSyntax FindBackingField(ClassDeclarationSyntax classDecl, PropertyDeclarationSyntax propDecl, SemanticModel semanticModel)
         {
             ExpressionSyntax expression = null;
 

@@ -32,7 +32,7 @@ public sealed class MRKAnalyzerPropertyTests : BaseDiagnosticAnalyzerTests<MRKAn
 	/// Validates that when a deprecated observable property is analyzed, at least one diagnostic error occurs
 	/// </summary>
 	[Fact]
-	public async Task MRKAnalyzerProperty_DiagnosticErrorsOccur_WhenDeprecatedPropertyIsAnalyzed()
+	public async Task MRKAnalyzerProperty_DiagnosticErrorsOccur_WhenDeprecatedObservablePropertyIsAnalyzed()
 	{
 		var testCode = /* lang=c#-test */@"
 		using CommunityToolkit.Mvvm.ComponentModel;
@@ -41,7 +41,6 @@ public sealed class MRKAnalyzerPropertyTests : BaseDiagnosticAnalyzerTests<MRKAn
 		{
 			public class TestViewModel: ObservableObject
 			{
-
 				private string _name;
 
 				public string Name
@@ -57,7 +56,39 @@ public sealed class MRKAnalyzerPropertyTests : BaseDiagnosticAnalyzerTests<MRKAn
 		}
 		";
 
-		var analyzerTest = new ObservablePropertyCSharpAnalyzerTest<MRKAnalyzerProperty>()
+		var analyzerTest = new MvvmCSharpAnalyzerTest<MRKAnalyzerProperty>()
+		{
+			TestCode = testCode
+		};
+
+		await Assert.ThrowsAnyAsync<Exception>(() => analyzerTest.RunAsync());
+	}
+
+	/// <summary>
+	/// Validates that when a deprecated observable property is analyzed, at least one diagnostic error occurs
+	/// </summary>
+	[Fact]
+	public async Task MRKAnalyzerProperty_DiagnosticErrorsOccur_WhenDeprecatedPropertyWithNotifyPropertyChangedTargetIsAnalyzed()
+	{
+		var testCode = /* lang=c#-test */@"
+		using CommunityToolkit.Mvvm.ComponentModel;
+
+		namespace Test
+		{
+			public class TestViewModel: ObservableObject
+			{
+				private bool _canExecuteCommand = false;
+
+				public bool CanExecuteCommand
+				{
+					get { return _canExecuteCommand; }
+					set { SetProperty(ref _canExecuteCommand, value); }
+				}
+			}
+		}
+		";
+
+		var analyzerTest = new MvvmCSharpAnalyzerTest<MRKAnalyzerProperty>()
 		{
 			TestCode = testCode
 		};
@@ -84,7 +115,7 @@ public sealed class MRKAnalyzerPropertyTests : BaseDiagnosticAnalyzerTests<MRKAn
 		}
 		";
 
-		var analyzerTest = new PartialPropertyCSharpAnalyzerTest<MRKAnalyzerProperty>
+		var analyzerTest = new PartialMemberCSharpAnalyzerTest<MRKAnalyzerProperty>
 		{
 			TestCode = testCode
 		};
@@ -114,7 +145,7 @@ public sealed class MRKAnalyzerPropertyTests : BaseDiagnosticAnalyzerTests<MRKAn
 		}
 		";
 
-		var analyzerTest = new PartialPropertyCSharpAnalyzerTest<MRKAnalyzerProperty>
+		var analyzerTest = new PartialMemberCSharpAnalyzerTest<MRKAnalyzerProperty>
 		{
 			TestCode = testCode
 		};

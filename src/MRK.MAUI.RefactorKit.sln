@@ -9,9 +9,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MRK.MAUI.RefactorKit.CodeFi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MRK.MAUI.RefactorKit.Package", "MRK.MAUI.RefactorKit\MRK.MAUI.RefactorKit.Package\MRK.MAUI.RefactorKit.Package.csproj", "{4533EE5A-1BC3-4691-B806-E3B887E6EAD1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MRK.MAUI.RefactorKit.Tests", "MRK.MAUI.RefactorKit.Tests\MRK.MAUI.RefactorKit.Tests.csproj", "{0CE3A49D-F0F5-4E90-9618-D8B7B94A69D8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MRK.MAUI.RefactorKit.Tests", "..\tests\MRK.MAUI.RefactorKit.Tests\MRK.MAUI.RefactorKit.Tests.csproj", "{C63E4BF6-B9B8-CE79-104A-B3348A2073B3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MRK.MAUI.RefactorKit.CodeFixes.Tests", "MRK.MAUI.RefactorKit.CodeFixes.Tests\MRK.MAUI.RefactorKit.CodeFixes.Tests.csproj", "{742B4B9F-AD37-437F-9A1D-133E6EA9434C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MRK.MAUI.RefactorKit.CodeFixes.Tests", "..\tests\MRK.MAUI.RefactorKit.CodeFixes.Tests\MRK.MAUI.RefactorKit.CodeFixes.Tests.csproj", "{77EFF90B-1512-2A51-345C-52D97CB3BA6D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,14 +31,14 @@ Global
 		{4533EE5A-1BC3-4691-B806-E3B887E6EAD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4533EE5A-1BC3-4691-B806-E3B887E6EAD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4533EE5A-1BC3-4691-B806-E3B887E6EAD1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0CE3A49D-F0F5-4E90-9618-D8B7B94A69D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0CE3A49D-F0F5-4E90-9618-D8B7B94A69D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0CE3A49D-F0F5-4E90-9618-D8B7B94A69D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0CE3A49D-F0F5-4E90-9618-D8B7B94A69D8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{742B4B9F-AD37-437F-9A1D-133E6EA9434C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{742B4B9F-AD37-437F-9A1D-133E6EA9434C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{742B4B9F-AD37-437F-9A1D-133E6EA9434C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{742B4B9F-AD37-437F-9A1D-133E6EA9434C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C63E4BF6-B9B8-CE79-104A-B3348A2073B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C63E4BF6-B9B8-CE79-104A-B3348A2073B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C63E4BF6-B9B8-CE79-104A-B3348A2073B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C63E4BF6-B9B8-CE79-104A-B3348A2073B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77EFF90B-1512-2A51-345C-52D97CB3BA6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77EFF90B-1512-2A51-345C-52D97CB3BA6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77EFF90B-1512-2A51-345C-52D97CB3BA6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77EFF90B-1512-2A51-345C-52D97CB3BA6D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
