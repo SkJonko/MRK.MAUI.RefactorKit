@@ -1,4 +1,4 @@
-﻿# MRK.MAUI.RefactorKit
+# MRK.MAUI.RefactorKit
 
 ![Logo](assets/banner.png)
 
@@ -14,8 +14,6 @@
 - 🔧 Automatically refactors them into `ObservableProperty` fields (CommunityToolkit.Mvvm).
 - 📦 Packaged as a NuGet analyzer — no manual execution required.
 - 🧠 Designed for clean, idiomatic .NET MAUI development.
-
-> **Coming Soon**: Refactoring support for `Command` to `RelayCommand`.
 
 ---
 
@@ -38,6 +36,8 @@ The analyzer will:
 - Detect Xamarin-style backing fields and properties.
 - Suggest fixes via lightbulb (Ctrl + .) or auto-fix.
 - Transform to the ObservableProperty attribute-based syntax.
+- Transform the DelegateCommand from MVVM to the new `RelayCommand` syntax.
+- Transform the Command to the new `RelayCommand` syntax.
 
 ### Examples
 
